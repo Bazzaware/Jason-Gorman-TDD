@@ -46,14 +46,12 @@ namespace ExerciseOneTests
             [4000] = "MMMM",
         };
         
-        private string _result;
-
         internal string ConvertIntToRoman(int interger)
         {
 
             char[] asCharachters = interger.ToString().ToArray();
             int numberOfZeros;
-
+            string result = null;
             string value = "";
             for (int i = 0; i < asCharachters.Length; i++)
             {
@@ -61,17 +59,17 @@ namespace ExerciseOneTests
                 var itemAsString = int.Parse((asCharachters[i]).ToString().PadRight((int)numberOfZeros, '0'));
                 if (romanUnit.TryGetValue(itemAsString, out value))
                 {
-                    _result += value;
+                    result += value;
                 }
                 else
                 {
                     throw new KeyNotFoundException($"{itemAsString} not found.");
                 }
             }
-            return _result;
+            return result;
         }
 
-
+        //TODO:  This was me trying something out.
         internal int ReversInterger(int interger)
         {
             int reminder, reverse = 0;
