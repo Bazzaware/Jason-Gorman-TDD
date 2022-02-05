@@ -49,14 +49,14 @@ namespace ExerciseOneTests
         internal string ConvertIntToRoman(int interger)
         {
 
-            char[] asCharachters = interger.ToString().ToArray();
-            int numberOfZeros;
+            char[] intToString = interger.ToString().ToArray();
+            int decimalPlaces;
             string result = null;
             string value = "";
-            for (int i = 0; i < asCharachters.Length; i++)
+            for (int i = 0; i < intToString.Length; i++)
             {
-                numberOfZeros = asCharachters.Length - i;
-                var itemAsString = int.Parse((asCharachters[i]).ToString().PadRight((int)numberOfZeros, '0'));
+                decimalPlaces = intToString.Length - i;
+                var itemAsString = int.Parse((intToString[i]).ToString().PadRight((int)decimalPlaces, '0'));
                 if (romanUnit.TryGetValue(itemAsString, out value))
                 {
                     result += value;
