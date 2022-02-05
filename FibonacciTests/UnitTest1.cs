@@ -7,73 +7,73 @@ namespace FibonacciTests
     public class UnitTest1
     {
         [Fact]
-        public void firstNumberInSequenceIsZero()
+        public void FirstNumberInSequenceIsZero()
         {
-            Assert.Equal(0, getFibonacciNumber(0));
+            Assert.Equal(0, GetFibonacciNumber(0));
         }
 
 
         [Fact]
-        public void secondNumberInSequenceIsOne()
+        public void SecondNumberInSequenceIsOne()
         {
             // Arrange
 
             // Act
 
             // Assert
-            Assert.Equal(1, getFibonacciNumber(1));
+            Assert.Equal(1, GetFibonacciNumber(1));
 
         }
 
         [Theory]
         [InlineData(0,0)]
         [InlineData(1,1)]
-        public void firstTwoNumbersAreSameAsIndex(int index,int expected)
+        public void FirstTwoNumbersAreSameAsIndex(int index,int expected)
         {
             // Arrange
 
             // Act
 
             // Assert
-            Assert.Equal(expected,getFibonacciNumber(index));
+            Assert.Equal(expected,GetFibonacciNumber(index));
    
         }
 
         [Fact]
-        public void thirdNumberInSequenceIsOne()
+        public void ThirdNumberInSequenceIsOne()
         {
             // Arrange
 
             // Act
 
             // Assert
-            Assert.Equal(1, getFibonacciNumber(2));
+            Assert.Equal(1, GetFibonacciNumber(2));
 
         }
 
         [Theory]
         [InlineData(2,1)]
         [InlineData(3,2)]
-        public void thirdNumbeOnIsIndexMinusOne(int index, int expected)
+        public void ThirdNumbeOnIsIndexMinusOne(int index, int expected)
         {
             // Arrange
 
             // Act
 
             // Assert
-            Assert.Equal(expected,getFibonacciNumber(index));
+            Assert.Equal(expected,GetFibonacciNumber(index));
 
         }
 
         [Fact]
-        public void sixthNumberIsFive()
+        public void SixthNumberIsFive()
         {
             // Arrange
 
             // Act
 
             // Assert
-            Assert.Equal(5, getFibonacciNumber(5));
+            Assert.Equal(5, GetFibonacciNumber(5));
 
         }
 
@@ -81,35 +81,33 @@ namespace FibonacciTests
         [InlineData(2,1)]
         [InlineData(3,2)]
         [InlineData(5,5)]
-        public void thirdNumberOnIsSumOfPreviousTwo(int index,int expected)
+        public void ThirdNumberOnIsSumOfPreviousTwo(int index,int expected)
         {
             // Arrange
 
             // Act
 
             // Assert
-            Assert.Equal(expected, getFibonacciNumber(index));
+            Assert.Equal(expected, GetFibonacciNumber(index));
 
         }
 
         [Fact]
-        public void indexMustBeAPositiveInteger()
+        public void IndexMustBeAPositiveInteger()
         {
             // Arrange
 
             // Act
 
             // Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => getFibonacciNumber(-1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => GetFibonacciNumber(-1));
 
         }
         
-        private int getFibonacciNumber(int index)
+        private int GetFibonacciNumber(int index)
         {
             return new Fibonacci().getNumber(index);
         }
-
-
 
     }
 }

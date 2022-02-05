@@ -74,7 +74,7 @@ namespace ExerciseOneTests
             int interger = 1;
 
             // Act
-            string result = new RomanNumeral().convertIntToRoman(interger);
+            string result = new RomanNumeral().ConvertIntToRoman(interger);
 
             // Assert
             result.Should().Be("I");
@@ -82,13 +82,13 @@ namespace ExerciseOneTests
         }
 
         [Fact]
-        public void shouldConvertIntergerFiveToRoman()
+        public void ShouldConvertIntergerFiveToRoman()
         {
             // Arrange
             int interger = 5;
 
             // Act
-            string  result = new RomanNumeral().convertIntToRoman(interger);
+            string  result = new RomanNumeral().ConvertIntToRoman(interger);
 
             // Assert
             result.Should().Be("V");
@@ -110,7 +110,7 @@ namespace ExerciseOneTests
             // Arrange
 
             // Act
-            string result = new RomanNumeral().convertIntToRoman(interger);
+            string result = new RomanNumeral().ConvertIntToRoman(interger);
 
             // Assert
             result.Should().Be(expected);
@@ -118,17 +118,104 @@ namespace ExerciseOneTests
         }
 
         //TODO: Check why this is not working.
-        [Fact(Skip = "Cant get this to test for exceptions")]
-        public void shouldThrowKeyNotFoundExceptionWhenInvalidIntergerPassed()
+        [Fact(Skip = "Can't get this to test for exceptions")]
+        public void ShouldThrowKeyNotFoundExceptionWhenInvalidIntergerPassed()
+        {
+            //// Arrange
+            //object interger = null;
+
+            //// Act
+            //object result = null;
+
+            //// Assert
+            //result.GetType(KeyNotFoundException).Where(e => e.Message.StartsWith($"{interger} not found."));
+
+        }
+
+        [Fact]
+        public void ShouldConvertIntergerTenToRoman()
         {
             // Arrange
-            object interger = null;
+            int interger = 10;
+            string expected = "X";
 
             // Act
-            object result = null;
+            object result = new RomanNumeral().ConvertIntToRoman(interger);
 
             // Assert
-            //result.GetType(KeyNotFoundException).Where(e => e.Message.StartsWith($"{interger} not found."));
+            result.Should().Be(expected);
+
+        }
+
+        [Theory]
+        [InlineData("XI",11)]
+        [InlineData("XII",12)]
+        [InlineData("XIII",13)]
+        [InlineData("XIV",14)]
+        [InlineData("XV",15)]
+        [InlineData("XVI",16)]
+        [InlineData("XVII",17)]
+        [InlineData("XVIII",18)]
+        [InlineData("XIX",19)]
+        public void ShouldConvertFirstTensToRoman(string expected, int interger)
+        {
+            // Arrange
+
+            // Act
+            string result = new RomanNumeral().ConvertIntToRoman(interger);
+
+            // Assert
+            result.Should().Be(expected);
+
+        }
+
+        [Theory]
+        [InlineData("X", 10)]
+        [InlineData("XX", 20)]
+        [InlineData("XXX", 30)]
+        [InlineData("XL", 40)]
+        [InlineData("L", 50)]
+        [InlineData("LX", 60)]
+        [InlineData("LXX", 70)]
+        [InlineData("LXXX", 80)]
+        [InlineData("XC", 90)]
+        public void ShouldConvertAllTensToRoman(string expected, int interger)
+        {
+            // Arrange
+
+            string result = new RomanNumeral().ConvertIntToRoman(interger);
+
+            // Assert
+            result.Should().Be(expected);
+
+        }
+
+        [Fact]
+        public void ShouldConvertFourThousandToRoman()
+        {
+            // Arrange
+            object expected = "MMMM";
+            int interger = 4000;
+
+            // Act
+            object result = new RomanNumeral().ConvertIntToRoman(interger);
+
+            // Assert
+            result.Should().Be(expected);
+
+        }
+
+        [Fact]
+        public void ShouldReturnNumberRevirsed()
+        {
+            // Arrange
+            int expected = 123456789;
+            int interger = 987654321;
+            // Act
+            int result = new RomanNumeral().ReversInterger(interger);
+
+            // Assert
+            result.Should().Be(expected);
 
         }
     }
